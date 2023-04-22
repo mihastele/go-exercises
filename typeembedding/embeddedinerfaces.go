@@ -17,11 +17,20 @@ type Talker interface {
 	Yeller
 }
 
+func (a Account) Whisper() string {
+	return "I am whispering"
+}
+
+func (a Account) Yell() string {
+	return "I am yelling"
+}
+
 func talk(t Talker) {
 	println(t.Whisper(), t.Yell())
 }
 
-// Embedded structs
+// Embedded structs below
+
 type Account struct {
 	accountId int
 	balance   int
@@ -36,4 +45,7 @@ func main() {
 	// Embedded interfaces
 	mgrAcct := ManagerAccount{Account{1, 100, "John"}}
 	println(mgrAcct.accountId, mgrAcct.balance, mgrAcct.name)
+
+	talk(mgrAcct)
+
 }
