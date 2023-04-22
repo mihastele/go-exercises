@@ -1,7 +1,7 @@
 package main
 
-func name[T any, U int | string](v T) {
-	println(v)
+func name[T any, U int | string](v T, u U) {
+	println(v, u)
 }
 
 func isEqual[T comparable](a, b T) bool {
@@ -9,10 +9,9 @@ func isEqual[T comparable](a, b T) bool {
 }
 
 func main() {
-	name[int, int](1)
-	name[int, string](2)
-	name[string, int]("hello")
-	name[string, string]("world")
+	name[int, int](1, 2)
+	name[string, int]("hello", 1)
+	name[string, string]("hello", "world")
 
 	println(isEqual[int](1, 2))
 	println(isEqual[int](1, 1))
