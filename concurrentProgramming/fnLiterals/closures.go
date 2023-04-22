@@ -1,4 +1,4 @@
-package fnLiterals
+package main
 
 import "fmt"
 
@@ -31,5 +31,14 @@ func helloWorld() {
 	}
 
 	worldC()
+	worldC()
+	worldC()
 	world2()()
+
+	fmt.Println(outside)
+
+}
+
+func main() {
+	helloWorld()
 }
