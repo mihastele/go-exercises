@@ -54,4 +54,17 @@ func main() {
 	fmt.Println(data.Get("a"))
 	fmt.Println(data.Get("b"))
 	time.Sleep(100 * time.Millisecond)
+
+	var wg sync.WaitGroup
+	sum := 0
+	for i := 0; i < 30; i++ {
+		wg.Add(1)
+		//value := i
+		go func(i int) {
+			defer wg.Done()
+			sum += i
+		}(i)
+	}
+	wg.Wait()
+	fmt.Println("Sum:", sum)
 }
