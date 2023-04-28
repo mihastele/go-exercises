@@ -79,7 +79,7 @@ func main() {
 		for {
 			select {
 			case r := <-results:
-				fmt.Printf("%v[%v]:%v", r.Path, r.LineNum, r.Line)
+				fmt.Printf("%v[%v]:%v\n", r.Path, r.LineNum, r.Line)
 			case <-blockWorkersWg:
 				if len(results) == 0 {
 					displayWg.Done()
